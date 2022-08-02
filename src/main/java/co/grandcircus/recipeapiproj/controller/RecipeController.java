@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import co.grandcircus.recipeapiprog.service.RecipeService;
 import co.grandcircus.recipeapiproj.model.Recipe;
 import co.grandcircus.recipeapiproj.repository.RecipeRepository;
 import co.grandcircus.recipeapiproj.service.RecipeService;
@@ -20,9 +19,7 @@ public class RecipeController {
 	private RecipeRepository repo;
 	@Autowired
 	private RecipeService recipeService;
-	
-	@Autowired
-	private RecipeService recipeService;
+
 	
 	@RequestMapping("/")
 	public String homePage() {
