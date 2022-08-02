@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:src/main/java/co/grandcircus/recipeapiprog/service/RecipeService.java
-package co.grandcircus.recipeapiprog.service;
-========
 package co.grandcircus.recipeapiproj.service;
->>>>>>>> 206aba1a5d40d53cc24243e6e6bf89c4cd94195d:src/main/java/co/grandcircus/recipeapiproj/service/RecipeService.java
 
 import java.util.List;
 
