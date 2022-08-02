@@ -7,9 +7,32 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Recipes.com</title>
 </head>
 <body>
+<div>Search for a Recipe!</div>
+<br>
+<div>
+<form class="form" method = "POST" action ="/recipe-search">
+<div class="searchterm"> 
+<label for="searchterm">Enter a recipe name or ingredient:</label><br>
+<input type="text" id="searchterm" name="searchParam" placeholder="Search here!">
+</div>
+<br>
+<input type="radio" id="searchby" name="searchType" value="name" checked="checked">
+<label for="name">Search by recipe name</label><br>
+<input type="radio" id="searchby" name="searchType" value="ingredient">
+<label for="ingredient">Search by main ingredient</label><br>
+<br>
+<input type="submit" value="Submit">
+</form>
+</div>
+
+
+
+
+
+
 
 </body>
 </html>

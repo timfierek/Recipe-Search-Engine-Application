@@ -17,9 +17,11 @@ public class RecipeController {
 	
 	@Autowired
 	private RecipeRepository repo;
-	
+
 	@Autowired
 	private RecipeService recipeService;
+
+
 	
 	@RequestMapping("/")
 	public String homePage() {
