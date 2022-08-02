@@ -1,4 +1,4 @@
-package Service;
+package co.grandcircus.recipeapiproj.service;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import co.grandcircus.recipeapiproj.model.Recipe;
+import co.grandcircus.recipeapiproj.model.RecipeResponse;
 
 @Service
 public class RecipeService {
@@ -21,7 +22,7 @@ public class RecipeService {
 		return restTemplate.getForObject(url, Recipe.class);
 	}
 	
-	public List<Recipe> getRecipeByIngredient(List<String> ingredients) {
+	public List<Recipe> getRecipeByIngredient(String ingredients) {
 		String url = "https://api.spoonacular.com/recipes/complexSearch/?includeIngredients=" + ingredients +"&apiKey=" + apiKey;
 		return restTemplate.getForObject(url, RecipeResponse.class).getRecipes();
 	}

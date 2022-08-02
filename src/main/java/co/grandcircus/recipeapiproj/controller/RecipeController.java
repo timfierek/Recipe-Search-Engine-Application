@@ -10,11 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import co.grandcircus.recipeapiproj.model.Recipe;
 import co.grandcircus.recipeapiproj.repository.RecipeRepository;
+import co.grandcircus.recipeapiproj.service.RecipeService;
 
 @Controller
 public class RecipeController {
 	@Autowired
 	private RecipeRepository repo;
+	@Autowired
+	private RecipeService recipeService;
 	
 	@RequestMapping("/")
 	public String homePage() {
@@ -30,10 +33,10 @@ public class RecipeController {
 		
 		//Find recipe based on search style selected
 		if(searchType.equals("name")) {
-			results = RecipeApiService.getRecipeByName(searchParam);
+			results = recipeService.getRecipeByName(searchParam);
 		}
-		else if(searchType.equals("ingredient")) {
-			results = RecipeApiService.getRecipeByIngredient(searchParam);
+		else {
+			results = recipeService.getRecipeByIngredient(searchParam);
 		}
 		
 		model.addAttribute("searchParam", searchParam);
@@ -44,7 +47,7 @@ public class RecipeController {
 	
 	@RequestMapping("/recipe-details")
 	public String recipeDetails(Model model, @RequestParam String id) {
-		Recipe recipe = RecipeApiService.getRecipeById(id);
+		Recipe recipe = recipeService.getRecipeById(id);
 		model.addAttribute("recipe", recipe);
 		
 		return "recipe-details";
