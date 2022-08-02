@@ -7,6 +7,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Document("favorites")
 public class Recipe {
+	public RecipeNutrition[] getNutrients() {
+		return nutrients;
+	}
+
+	public void setNutrients(RecipeNutrition[] nutrients) {
+		this.nutrients = nutrients;
+	}
+
 	@Id
 	private String id;
 	
@@ -15,8 +23,9 @@ public class Recipe {
 	private String instructions;
 	
 	@JsonProperty("extendedIngredients")
-	private String[] ingredients;
-	
+	private RecipeIngredients[] ingredients;
+	@JsonProperty("nutrition.nutrients")
+	private RecipeNutrition[] nutrients;
 	private String creditsText;
 
 	public String getId() {
@@ -43,11 +52,11 @@ public class Recipe {
 		this.instructions = instructions;
 	}
 
-	public String[] getIngredients() {
+	public RecipeIngredients[] getIngredients() {
 		return ingredients;
 	}
 
-	public void setIngredients(String[] ingredients) {
+	public void setIngredients(RecipeIngredients[] ingredients) {
 		this.ingredients = ingredients;
 	}
 

@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import co.grandcircus.recipeapiprog.service.RecipeService;
 import co.grandcircus.recipeapiproj.model.Recipe;
 import co.grandcircus.recipeapiproj.repository.RecipeRepository;
 import co.grandcircus.recipeapiproj.service.RecipeService;
@@ -18,8 +17,6 @@ public class RecipeController {
 	
 	@Autowired
 	private RecipeRepository repo;
-	@Autowired
-	private RecipeService recipeService;
 	
 	@Autowired
 	private RecipeService recipeService;
@@ -71,5 +68,11 @@ public class RecipeController {
 	public String deleteFavorite(@RequestParam String id) {
 		repo.deleteById(id);
 		return "redirect:/favorites";
+	}
+	
+	@RequestMapping("/add-favorite")
+	public String addToFavorites(@RequestParam String id) {
+		repo.insert(recipeService.getRecipeById(id));
+		return "redirect:/recipe-details";
 	}
 }
