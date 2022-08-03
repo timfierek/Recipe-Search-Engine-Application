@@ -17,8 +17,7 @@ public class Recipe {
 	
 	@JsonProperty("extendedIngredients")
 	private RecipeIngredients[] ingredients;
-	@JsonProperty("nutrition.nutrients")
-	private RecipeNutrition[] nutrients;
+	private RecipeNutritionList nutrition;
 	private String creditsText;
 
 	public String getId() {
@@ -69,10 +68,11 @@ public class Recipe {
 		this.creditsText = creditsText;
 	}
 	
-	/*
-	 * public RecipeNutrition[] getNutrients() { return nutrients; }
-	 * 
-	 * public void setNutrients(RecipeNutrition[] nutrients) { this.nutrients =
-	 * nutrients; }
-	 */
+	public RecipeNutritionList getNutrition() {
+		return nutrition;
+	}
+	
+	public void setNutrition(RecipeNutritionList nutrition) {
+		this.nutrition = nutrition;
+	}
 }

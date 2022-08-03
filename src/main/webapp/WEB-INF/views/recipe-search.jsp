@@ -12,9 +12,13 @@
 <body>
 	<a href="/">Home</a> | <a href="/favorites">Favorites</a>
 	
-	<h2 class="headerText">Search Results for: ${searchParam}</h2>
+	<h2 class="headerText">Search Results for: "${searchParam}"</h2>
 	
 	<div class="results">
+		<c:if test="${resultsSize == 0}">
+			<h4>No results found for "${searchParam}", please try again with different keywords</h4>
+		</c:if>
+	
 		<c:forEach var="recipe" items="${results}">
 			<a href="/recipe-details?id=${recipe.id}">${recipe.name}</a>
 			<br>

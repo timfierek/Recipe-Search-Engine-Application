@@ -38,13 +38,15 @@ public class RecipeController {
 		//Find recipe based on search style selected
 		if(searchType.equals("name")) {
 			results = recipeService.getRecipeByName(searchParam);
+			model.addAttribute("searchParam", searchParam);
 		}
 		else {
 			results = recipeService.getRecipeByIngredient(searchParam);
+			model.addAttribute("searchParam", ("dishes with " + searchParam + " in it"));
 		}
 		
-		model.addAttribute("searchParam", searchParam);
 		model.addAttribute("results", results);
+		model.addAttribute("resultsSize", results.size());
 		
 		return "recipe-search";
 	}

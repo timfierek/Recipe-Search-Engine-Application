@@ -13,26 +13,27 @@
 	<a href="/">Home</a> |
 	<a href="/favorites">Favorites</a>
 
-	<h2 class="headerText">${recipe.name}by ${recipe.creditsText}</h2>
+	<h2 class="headerText">${recipe.name} by ${recipe.creditsText}</h2>
+	<img alt="${recipe.name}" src="${recipe.image}" width="312" height="231">
 
 	<div class="recipeInformation">
 	
+		<h4>Ingredients:</h4>
 		<ul class="allIngredients">
 			<c:forEach var="ingredient" items="${recipe.ingredients}">
-				<li>${ingredient.name}</li>
+				<li>${ingredient.name}, ${ingredient.amount} ${ingredient.unit}</li>
 			</c:forEach>
 		</ul>
 		<br> 
-		<br>
+		<h4>Directions:</h4>
 		<div class="instructions">${recipe.instructions}</div>
 		<br>
-		<br>
+		<h4>Nutrition Information (per serving):</h4>
 		<ul class="allNutrients">
-			<c:forEach var="nutrient" items="${recipe.nutrients}">
-				<li>${ingredient.name}</li>
+			<c:forEach var="nutrient" items="${recipe.nutrition.nutrients}" begin="0" end="8">
+				<li>${nutrient.name} - ${nutrient.amount}${nutrient.unit}</li>
 			</c:forEach>
-		</ul>
-		
+		</ul>	
 	</div>
 </body>
 </html>

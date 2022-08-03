@@ -1,33 +1,34 @@
 package co.grandcircus.recipeapiproj.model;
 
 public class RecipeNutrition {
-	private String calories;
-	private String fat;
-	private String carbs;
-	private String protein;
-	public String getCalories() {
-		return calories;
+	private String name;
+	private double amount;
+	private String unit;
+	private double percentOfDailyNeeds;
+	public String getName() {
+		return name;
 	}
-	public void setCalories(String calories) {
-		this.calories = calories;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getFat() {
-		return fat;
+	public double getAmount() {
+		return amount;
 	}
-	public void setFat(String fat) {
-		this.fat = fat;
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
-	public String getCarbs() {
-		return carbs;
+	public String getUnit() {
+		return unit;
 	}
-	public void setCarbs(String carbs) {
-		this.carbs = carbs;
+	public void setUnit(String unit) {
+		this.unit = unit;
 	}
-	public String getProtein() {
-		return protein;
+	public double getPercentOfDailyNeeds() {
+		return percentOfDailyNeeds;
 	}
-	public void setProtein(String protein) {
-		this.protein = protein;
+	public void setPercentOfDailyNeeds(double percentOfDailyNeeds) {
+		this.percentOfDailyNeeds = percentOfDailyNeeds;
 	}
+	
 	
 }
