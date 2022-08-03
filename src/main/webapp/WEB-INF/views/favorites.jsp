@@ -24,7 +24,7 @@
 				<tbody>
 				<c:forEach var="fav" items="${favorites}">
 					<tr>
-						<td>${fav.name}</td>
+						<td><a href="/recipe-details?id=${fav.id}">${fav.name}</a></td>
 						<td><a href="/delete?id=${fav.id}" class="button">Delete</a></td>
 					</tr>
 				</c:forEach>
