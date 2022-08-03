@@ -18,7 +18,7 @@ public class RecipeService {
 	RestTemplate restTemplate = new RestTemplate(); 
 	
 	public Recipe getRecipeById(String id) {
-		String url = "https://api.spoonacular.com/recipes/" + id + "/information&apiKey=" + apiKey;
+		String url = "https://api.spoonacular.com/recipes/" + id + "/information?includeNutrition=true&apiKey=" + apiKey;
 		return restTemplate.getForObject(url, Recipe.class);
 	}
 	
@@ -28,7 +28,7 @@ public class RecipeService {
 	}
 	
 	public List<Recipe> getRecipeByName(String name) {
-		String url = "https://api.spoonacular.com/recipes/complexSearch/?titleMatch=" + name +"&apiKey=" + apiKey;
+		String url = "https://api.spoonacular.com/recipes/complexSearch/?titleMatch=" + name + "&apiKey=" + apiKey;
 		return restTemplate.getForObject(url, RecipeResponse.class).getRecipes();
 	}
 

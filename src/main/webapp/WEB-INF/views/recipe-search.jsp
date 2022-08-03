@@ -15,16 +15,15 @@
 	<h2 class="headerText">Search Results for: ${searchParam}</h2>
 	
 	<div class="results">
-		<c:forEach var="recipe" items="${results}" class="recipe">
+		<c:forEach var="recipe" items="${results}">
 			<a href="/recipe-details?id=${recipe.id}">${recipe.name}</a>
-			
-			<ul class="mainIngredients">
-				<c:forEach begin="0" end="3" var="ingredient" items="${recipe.ingredients}">
-					<li>${ingredient.name}</li>
-				</c:forEach>
-			</ul><br><br>
-			
-			<a href="/add-favorite?id=${recipe.id}">Add to Favorites</a><br><br>
+			<br>
+			<img alt="${recipe.name}" src="${recipe.image}" width="312" height="231">
+			<br>
+			<a href="/add-favorite?id=${recipe.id}">Add to Favorites</a>
+			<br>
+			<br>
+			<br>
 		</c:forEach>
 	</div>
 </body>

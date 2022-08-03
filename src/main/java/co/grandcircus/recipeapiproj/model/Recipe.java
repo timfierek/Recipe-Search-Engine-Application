@@ -7,20 +7,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Document("favorites")
 public class Recipe {
-	public RecipeNutrition[] getNutrients() {
-		return nutrients;
-	}
-
-	public void setNutrients(RecipeNutrition[] nutrients) {
-		this.nutrients = nutrients;
-	}
-
 	@Id
 	private String id;
 	
 	@JsonProperty("title")
 	private String name;
 	private String instructions;
+	private String image;
 	
 	@JsonProperty("extendedIngredients")
 	private RecipeIngredients[] ingredients;
@@ -34,6 +27,14 @@ public class Recipe {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
+	public String getImage() {
+		return image;
 	}
 
 	public String getName() {
@@ -68,4 +69,10 @@ public class Recipe {
 		this.creditsText = creditsText;
 	}
 	
+	/*
+	 * public RecipeNutrition[] getNutrients() { return nutrients; }
+	 * 
+	 * public void setNutrients(RecipeNutrition[] nutrients) { this.nutrients =
+	 * nutrients; }
+	 */
 }
