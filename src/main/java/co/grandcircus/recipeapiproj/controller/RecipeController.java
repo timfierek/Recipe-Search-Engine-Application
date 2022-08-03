@@ -77,6 +77,6 @@ public class RecipeController {
 	@RequestMapping("/add-favorite")
 	public String addToFavorites(@RequestParam String id) {
 		repo.insert(recipeService.getRecipeById(id));
-		return "redirect:/recipe-details";
+		return "redirect:/recipe-details?id=" + id;
 	}
 }
