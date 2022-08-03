@@ -7,9 +7,28 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>${searchParam} Recipes</title>
 </head>
 <body>
-
+	<a href="/">Home</a> | <a href="/favorites">Favorites</a>
+	
+	<h2 class="headerText">Search Results for: "${searchParam}"</h2>
+	
+	<div class="results">
+		<c:if test="${resultsSize == 0}">
+			<h4>No results found for "${searchParam}", please try again with different keywords</h4>
+		</c:if>
+	
+		<c:forEach var="recipe" items="${results}">
+			<a href="/recipe-details?id=${recipe.id}">${recipe.name}</a>
+			<br>
+			<img alt="${recipe.name}" src="${recipe.image}" width="312" height="231">
+			<br>
+			<a href="/add-favorite?id=${recipe.id}">Add to Favorites</a>
+			<br>
+			<br>
+			<br>
+		</c:forEach>
+	</div>
 </body>
 </html>

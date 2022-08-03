@@ -13,10 +13,11 @@ public class Recipe {
 	@JsonProperty("title")
 	private String name;
 	private String instructions;
+	private String image;
 	
 	@JsonProperty("extendedIngredients")
-	private String[] ingredients;
-	
+	private RecipeIngredients[] ingredients;
+	private RecipeNutritionList nutrition;
 	private String creditsText;
 
 	public String getId() {
@@ -25,6 +26,14 @@ public class Recipe {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
+	public String getImage() {
+		return image;
 	}
 
 	public String getName() {
@@ -43,11 +52,11 @@ public class Recipe {
 		this.instructions = instructions;
 	}
 
-	public String[] getIngredients() {
+	public RecipeIngredients[] getIngredients() {
 		return ingredients;
 	}
 
-	public void setIngredients(String[] ingredients) {
+	public void setIngredients(RecipeIngredients[] ingredients) {
 		this.ingredients = ingredients;
 	}
 
@@ -59,4 +68,11 @@ public class Recipe {
 		this.creditsText = creditsText;
 	}
 	
+	public RecipeNutritionList getNutrition() {
+		return nutrition;
+	}
+	
+	public void setNutrition(RecipeNutritionList nutrition) {
+		this.nutrition = nutrition;
+	}
 }
