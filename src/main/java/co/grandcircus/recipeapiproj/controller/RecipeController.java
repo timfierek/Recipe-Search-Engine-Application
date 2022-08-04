@@ -1,6 +1,8 @@
 package co.grandcircus.recipeapiproj.controller;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,7 +56,13 @@ public class RecipeController {
 	@RequestMapping("/recipe-details")
 	public String recipeDetails(Model model, @RequestParam String id) {
 		Recipe recipe = recipeService.getRecipeById(id);
+		
+		try {
+			recipe.setCreditsText(recipe.getCreditsText().replaceAll("[^\\x00-\\x7F]", "-"));
+		}catch(NullPointerException e) {}
+		
 		model.addAttribute("recipe", recipe);
+		model.addAttribute("hasAuthor", Objects.isNull(recipe.getCreditsText()));
 		
 		return "recipe-details";
 	}
@@ -76,7 +84,10 @@ public class RecipeController {
 	
 	@RequestMapping("/add-favorite")
 	public String addToFavorites(@RequestParam String id) {
-		repo.insert(recipeService.getRecipeById(id));
+		Optional<Recipe> recipe = repo.findById(id);
+		if(recipe.isEmpty()) {
+			repo.insert(recipeService.getRecipeById(id));
+		}
 		return "redirect:/recipe-details?id=" + id;
 	}
 }
