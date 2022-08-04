@@ -40,8 +40,9 @@ body{
 #delete{
   color: black;
   background-color: lightgray;
+  margin:1px;
   margin-left: 20%;
-  padding: 10%;
+  padding: 1px;
   border-radius: 5px;
   text-decoration: none;
 }
