@@ -1,0 +1,9 @@
+@charset "ISO-8859-1";
+
+.search{
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    border-color: darkgray;
+    text-align: center;
+}
