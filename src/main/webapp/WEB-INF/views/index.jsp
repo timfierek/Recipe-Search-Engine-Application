@@ -4,20 +4,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
-<html>
+<html class="chefBackground">
 <head>
 	<link rel="stylesheet" href="styles.css">
+	<script src="https://kit.fontawesome.com/aa77e8e357.js" crossorigin="anonymous"></script>
 <meta charset="ISO-8859-1">
 <title>Recipes.com</title>
 </head>
 <body>
-<br>
-<div class="topnav">
+	<div class="topnav">
 		<a class="active" href="/">Home</a> <a href="/favorites">Favorites</a>
 	</div>
 
 <div class="searchWindow">
-	<div class="headerText">Search for a Recipe!</div>
+	<div id="indexHeader">Search for a Recipe!</div>
 	
 	<form class="form" method = "POST" action ="/recipe-search">
 		<div class="wrap">
@@ -30,9 +30,9 @@
 		</div>
 		
 		<div class="searchOptions">
-			<input type="radio" id="option1" name="searchType" value="name" checked="checked">
+			<input type="radio" name="searchType" value="name" checked="checked">
 			<label for="name">Search by recipe name</label><br>
-			<input type="radio" id="option2" name="searchType" value="ingredient">
+			<input type="radio" name="searchType" value="ingredient">
 			<label for="ingredient">Search by main ingredient</label><br>
 		</div>
 	</form>
