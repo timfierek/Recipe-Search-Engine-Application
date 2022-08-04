@@ -12,6 +12,10 @@
 </head>
 <body>
 <br>
+<div class="topnav">
+		<a class="active" href="/">Home</a> <a href="/favorites">Favorites</a>
+	</div>
+
 <div class="searchWindow">
 	<div class="headerText">Search for a Recipe!</div>
 	

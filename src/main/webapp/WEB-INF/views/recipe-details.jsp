@@ -7,11 +7,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="styles.css">
 <title>${recipe.name}</title>
 </head>
 <body>
-	<a href="/">Home</a> |
-	<a href="/favorites">Favorites</a>
+	<div class="topnav">
+		<a href="/">Home</a> <a href="/favorites">Favorites</a>
+	</div>
 
 	<h2 class="headerText">${recipe.name} by ${recipe.creditsText}</h2>
 	<img alt="${recipe.name}" src="${recipe.image}" width="312" height="231">

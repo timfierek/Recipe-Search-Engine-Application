@@ -6,26 +6,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<link
-		href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-		crossorigin="anonymous">
+	<link rel="stylesheet" href="styles.css">
+		
 	<meta charset="ISO-8859-1">
 	<title>Favorite Recipes</title>
 	</head>
 		<body>
-			<a href="/">Home  </a>
-			<a href="/favorites">|  Favorites</a>
-		
-			<h3>Favorited Recipes</h3>
+			<div class="topnav">
+				<a href="/">Home</a> <a class="active" href="/favorites">Favorites</a>
+			</div>
+	
+	
+			<div class="fav">
+			<h1>Favorited Recipes &#9829;</h1>
+			</div>		
 			
 			<table>
 				<tbody>
 				<c:forEach var="fav" items="${favorites}">
 					<tr>
-						<td><a href="/recipe-details?id=${fav.id}">${fav.name}</a></td>
-						<td><a href="/delete?id=${fav.id}" class="button">Delete</a></td>
+						<td><a href="/recipe-details?id=${fav.id}" style="text-decoration:none;">${fav.name}</a></td>
+						<td><a id="delete" href="/delete?id=${fav.id}" class="button">Delete</a></td>
 					</tr>
 				</c:forEach>
 				</tbody>
